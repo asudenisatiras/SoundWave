@@ -13,7 +13,7 @@ protocol SongsCellProtocol: AnyObject {
     func setSongName(_ text: String)
     func setArtistName(_ text: String)
     func setCollectionName(_ text: String)
-  
+    func setButtonImage(_ image: UIImage?)
 }
 class Musics: UITableViewCell {
     
@@ -26,6 +26,7 @@ class Musics: UITableViewCell {
     
     @IBOutlet weak var collectionNameLabel: UILabel!
     
+    @IBOutlet weak var playButton: UIButton!
     
     
     var cellPresenter: SongsCellPresenterProtocol! {
@@ -38,10 +39,11 @@ class Musics: UITableViewCell {
         super.awakeFromNib()
         
         self.alpha = 0.0
-        UIView.animate(withDuration: 0.5) {
-            self.alpha = 1.0
-        }
-       
+          UIView.animate(withDuration: 0.5) {
+              self.alpha = 1.0
+          }
+
+        
     }
    
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -58,7 +60,12 @@ class Musics: UITableViewCell {
 
 extension Musics: SongsCellProtocol {
 
-    
+    func setButtonImage(_ image: UIImage?) {
+        
+              DispatchQueue.main.async {
+                  self.playButton.setImage(image, for: .normal)
+              }
+          }
     
     func setImage(_ image: UIImage) {
         DispatchQueue.main.async {

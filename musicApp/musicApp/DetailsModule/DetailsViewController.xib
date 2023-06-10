@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="collectionLabel" destination="f7h-6y-B77" id="svd-lj-3Un"/>
                 <outlet property="collectionPriceLabel" destination="HSQ-we-YEh" id="n1e-tQ-6IO"/>
+                <outlet property="playButton" destination="pDy-r2-8vd" id="iIS-V9-r4v"/>
                 <outlet property="singLabel" destination="7ze-pI-VkA" id="2fe-bR-UIW"/>
                 <outlet property="songImage" destination="O1c-gx-Xgz" id="tuX-WW-Lgg"/>
                 <outlet property="songName" destination="VFC-HS-g0J" id="lXd-nW-kjd"/>
@@ -121,8 +122,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Bz-iu-LNg">
                     <rect key="frame" x="16" y="136" width="361" height="304"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f7h-6y-B77">
-                            <rect key="frame" x="183" y="142" width="166" height="17"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f7h-6y-B77">
+                            <rect key="frame" x="179" y="166" width="174" height="17"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -141,41 +142,54 @@
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pDy-r2-8vd">
                             <rect key="frame" x="4" y="244" width="28" height="35"/>
+                            <color key="tintColor" red="0.96078431610000004" green="0.75686275960000005" blue="0.74117648599999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" image="play.circle.fill" catalog="system"/>
                             <connections>
                                 <action selector="playSelectedSong:" destination="-1" eventType="touchUpInside" id="y6C-Nb-ngF"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ze-pI-VkA">
-                            <rect key="frame" x="179" y="38" width="174" height="23.333333333333329"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                            <color key="textColor" red="0.93725490570000003" green="0.5411764979" blue="0.65882354970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VFC-HS-g0J">
                             <rect key="frame" x="40" y="247" width="313" height="28"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c5d-Al-JoD">
+                            <rect key="frame" x="299" y="8" width="52" height="36"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
+                            <connections>
+                                <action selector="likeButtonClicked:" destination="-1" eventType="touchUpInside" id="E5e-iu-Mpb"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ze-pI-VkA">
+                            <rect key="frame" x="179" y="76" width="174" height="23.333333333333329"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                            <color key="textColor" red="0.93725490570000003" green="0.5411764979" blue="0.65882354970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                     <constraints>
                         <constraint firstItem="pDy-r2-8vd" firstAttribute="top" secondItem="O1c-gx-Xgz" secondAttribute="bottom" constant="22" id="0mY-7C-IWA"/>
+                        <constraint firstItem="c5d-Al-JoD" firstAttribute="leading" secondItem="O1c-gx-Xgz" secondAttribute="trailing" constant="128" id="8t9-BJ-Uer"/>
                         <constraint firstAttribute="trailing" secondItem="VFC-HS-g0J" secondAttribute="trailing" constant="8" id="GHt-st-7xb"/>
-                        <constraint firstItem="7ze-pI-VkA" firstAttribute="top" secondItem="7Bz-iu-LNg" secondAttribute="top" constant="38" id="Khj-Al-Bc7"/>
+                        <constraint firstItem="7ze-pI-VkA" firstAttribute="top" secondItem="7Bz-iu-LNg" secondAttribute="top" constant="76" id="Khj-Al-Bc7"/>
+                        <constraint firstItem="7ze-pI-VkA" firstAttribute="top" secondItem="c5d-Al-JoD" secondAttribute="bottom" constant="32" id="M5y-vL-GVq"/>
                         <constraint firstAttribute="bottom" secondItem="pDy-r2-8vd" secondAttribute="bottom" constant="25" id="NVk-Oa-Kft"/>
                         <constraint firstAttribute="height" constant="304" id="PKb-ec-vVh"/>
                         <constraint firstItem="7ze-pI-VkA" firstAttribute="leading" secondItem="O1c-gx-Xgz" secondAttribute="trailing" constant="8" id="Qcb-Za-g62"/>
                         <constraint firstAttribute="bottom" secondItem="VFC-HS-g0J" secondAttribute="bottom" constant="29" id="RtC-vQ-CDL"/>
                         <constraint firstAttribute="trailing" secondItem="7ze-pI-VkA" secondAttribute="trailing" constant="8" id="SWr-3a-GVA"/>
-                        <constraint firstItem="f7h-6y-B77" firstAttribute="top" secondItem="7ze-pI-VkA" secondAttribute="bottom" constant="80.666666666666671" id="Vjf-Uc-49I"/>
-                        <constraint firstItem="f7h-6y-B77" firstAttribute="leading" secondItem="O1c-gx-Xgz" secondAttribute="trailing" constant="12" id="VvZ-Wi-K7b"/>
-                        <constraint firstAttribute="trailing" secondItem="f7h-6y-B77" secondAttribute="trailing" constant="12" id="Yyb-vQ-Dpu"/>
+                        <constraint firstItem="f7h-6y-B77" firstAttribute="top" secondItem="7ze-pI-VkA" secondAttribute="bottom" constant="66.666666666666671" id="Vjf-Uc-49I"/>
+                        <constraint firstItem="f7h-6y-B77" firstAttribute="leading" secondItem="O1c-gx-Xgz" secondAttribute="trailing" constant="8" id="VvZ-Wi-K7b"/>
+                        <constraint firstAttribute="trailing" secondItem="f7h-6y-B77" secondAttribute="trailing" constant="8" id="Yyb-vQ-Dpu"/>
                         <constraint firstItem="VFC-HS-g0J" firstAttribute="leading" secondItem="7Bz-iu-LNg" secondAttribute="leading" constant="40" id="eRT-sn-gkM"/>
+                        <constraint firstAttribute="trailing" secondItem="c5d-Al-JoD" secondAttribute="trailing" constant="10" id="k0l-sh-Gab"/>
                         <constraint firstItem="O1c-gx-Xgz" firstAttribute="top" secondItem="7Bz-iu-LNg" secondAttribute="top" constant="25" id="kDT-8k-Qwz"/>
                         <constraint firstItem="pDy-r2-8vd" firstAttribute="leading" secondItem="7Bz-iu-LNg" secondAttribute="leading" constant="4" id="nXz-rO-68h"/>
+                        <constraint firstItem="c5d-Al-JoD" firstAttribute="top" secondItem="7Bz-iu-LNg" secondAttribute="top" constant="8" id="tES-Hl-aJT"/>
                         <constraint firstItem="VFC-HS-g0J" firstAttribute="leading" secondItem="pDy-r2-8vd" secondAttribute="trailing" constant="8" id="wWl-at-ftK"/>
                         <constraint firstItem="O1c-gx-Xgz" firstAttribute="leading" secondItem="7Bz-iu-LNg" secondAttribute="leading" constant="8" id="yPG-Lo-H8S"/>
                         <constraint firstItem="VFC-HS-g0J" firstAttribute="top" secondItem="pDy-r2-8vd" secondAttribute="top" constant="3" id="zKL-d0-G1l"/>
@@ -187,7 +201,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Phf-gE-ibE">
-                    <rect key="frame" x="16" y="621" width="361" height="32"/>
+                    <rect key="frame" x="16" y="751" width="361" height="32"/>
                     <color key="backgroundColor" red="0.96078431610000004" green="0.75686275960000005" blue="0.74117648599999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="32" id="8yp-pR-Kl4"/>
@@ -217,14 +231,16 @@
                 <constraint firstItem="NfD-63-x2N" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Ih0-7y-8G3"/>
                 <constraint firstItem="NfD-63-x2N" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="N21-tZ-SAu"/>
                 <constraint firstItem="Phf-gE-ibE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="Opq-0x-W3n"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Phf-gE-ibE" secondAttribute="bottom" constant="35" id="SCt-Z0-IIs"/>
                 <constraint firstItem="NfD-63-x2N" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="a5x-XZ-vPN"/>
-                <constraint firstItem="Phf-gE-ibE" firstAttribute="top" secondItem="cF2-Ug-gVy" secondAttribute="bottom" constant="37" id="yaY-sm-Yy4"/>
+                <constraint firstItem="Phf-gE-ibE" firstAttribute="top" secondItem="cF2-Ug-gVy" secondAttribute="bottom" constant="167" id="yaY-sm-Yy4"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="cF2-Ug-gVy" secondAttribute="trailing" constant="16" id="ziv-Wh-K3X"/>
             </constraints>
             <point key="canvasLocation" x="84.732824427480907" y="-11.267605633802818"/>
         </view>
     </objects>
     <resources>
+        <image name="heart" catalog="system" width="128" height="107"/>
         <image name="music" width="834" height="386"/>
         <image name="play.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="secondarySystemBackgroundColor">

@@ -4,6 +4,7 @@
 //
 //  Created by Asude Nisa Tıraş on 9.06.2023.
 //
+
 import UIKit
 //import musicAPI
 import SafariServices
@@ -17,7 +18,7 @@ protocol DetailsViewControllerProtocol: AnyObject {
     func setSongPrice(_ text: String)
     func setCollectionPrice(_ text: String)
     func setSongType(_ text: String)
-  
+    func setButtonImage(_ image: UIImage)
 }
 
 
@@ -41,8 +42,16 @@ class DetailsViewController: UIViewController, AVAudioPlayerDelegate {
     
     @IBOutlet weak var typeOfSong: UILabel!
     
+    
+    @IBOutlet weak var playButton: UIButton!
+    
+    var timeObserverToken: Any?
+    var player: AVPlayer?
     var presenter: DetailsPresenterProtocol!
     var audioPlayer: AVAudioPlayer?
+    var isPlaying = false
+   
+
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDidLoad()
@@ -60,20 +69,41 @@ class DetailsViewController: UIViewController, AVAudioPlayerDelegate {
     
     
     @IBAction func playSelectedSong(_ sender: UIButton) {
+//        guard let songURLString = presenter.getSource()?.previewUrl,
+//                      let songURL = URL(string: songURLString) else {
+//                    return
+//                }
+//
+//                let playerItem = AVPlayerItem(url: songURL)
+//                player = AVPlayer(playerItem: playerItem)
+//                player?.play()
+//
+//
+//  }
+        if isPlaying {
+                   presenter.pauseAudio()
+               } else {
+                   presenter.playAudio()
+               }
+  
+  }
+    
+    @IBAction func likeButtonClicked(_ sender: UIButton) {
         
-         }
-            
+        
     }
     
     
     
+    }
     
-    
-    
-    
-
-
 extension DetailsViewController: DetailsViewControllerProtocol {
+    func setButtonImage(_ image: UIImage) {
+        self.playButton.setImage(image, for: .normal)
+    }
+    
+    
+    
     func setSongType(_ text: String) {
         self.typeOfSong.text = text 
     }
@@ -98,7 +128,6 @@ extension DetailsViewController: DetailsViewControllerProtocol {
         }
     }
     
-   
     
     func setArtistName(_ text: String) {
         self.singLabel.text = text
@@ -108,7 +137,5 @@ extension DetailsViewController: DetailsViewControllerProtocol {
         self.collectionLabel.text = text
     }
   
-    
-    
     
 }

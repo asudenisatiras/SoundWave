@@ -97,6 +97,7 @@
             <connections>
                 <outlet property="artistNameLabel" destination="dZx-5E-JuU" id="256-z9-vhP"/>
                 <outlet property="collectionNameLabel" destination="QRB-jW-4Ah" id="Cf4-Zo-0qe"/>
+                <outlet property="playButton" destination="23f-sQ-W52" id="q4p-D5-RwF"/>
                 <outlet property="songNameLabel" destination="9uA-rY-UCa" id="i90-8t-Ulc"/>
                 <outlet property="songsImage" destination="QUu-Mk-NdL" id="WQn-FI-8pc"/>
             </connections>

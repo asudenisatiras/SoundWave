@@ -25,13 +25,17 @@ class HomeViewController: BaseViewController  {
     @IBOutlet weak var searchBar: UISearchBar!
 
 var presenter: HomePresenterProtocol!
+    
+    
+    var isSearchBarEmpty: Bool {
+        return searchBar.text?.isEmpty ?? true
+    }
 
 override func viewDidLoad() {
     super.viewDidLoad()
     
     presenter?.viewDidLoad()
-
-    
+ 
 }
 }
 
@@ -40,12 +44,23 @@ func setupTableView() {
     tableView.dataSource = self
     tableView.delegate = self
     tableView.register(cellType: Musics.self)
+    let backgroundImageView = UIImageView(image: UIImage(named: "song"))
+    backgroundImageView.contentMode = .scaleAspectFit
+    let scaleFactor: CGFloat = 0.8 
+    let scaledWidth = tableView.frame.width * scaleFactor
+    let scaledHeight = tableView.frame.height * scaleFactor
+    let offsetX = (tableView.frame.width - scaledWidth) / 4
+    let offsetY = (tableView.frame.height - scaledHeight) / 4
+    backgroundImageView.frame = CGRect(x: offsetX, y: offsetY, width: scaledWidth, height: scaledHeight)
+    tableView.backgroundView = backgroundImageView
+    tableView.backgroundView?.isHidden = !isSearchBarEmpty
+
 }
 func reloadData() {
     DispatchQueue.main.async { [weak self] in
         guard let self else { return }
         self.tableView.reloadData()
-
+        self.tableView.backgroundView?.isHidden = !self.isSearchBarEmpty
     }
 }
 

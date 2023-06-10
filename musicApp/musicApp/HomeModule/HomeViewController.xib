@@ -39,7 +39,7 @@
                         <constraint firstAttribute="trailing" secondItem="aMj-ip-7Qu" secondAttribute="trailing" constant="132" id="z53-I1-PNB"/>
                     </constraints>
                 </view>
-                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="zXV-3n-ypM">
+                <searchBar contentMode="redraw" searchBarStyle="prominent" placeholder="Search Song.." translatesAutoresizingMaskIntoConstraints="NO" id="zXV-3n-ypM">
                     <rect key="frame" x="0.0" y="103" width="393" height="56"/>
                     <textInputTraits key="textInputTraits"/>
                     <connections>

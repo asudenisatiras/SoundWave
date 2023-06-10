@@ -8,12 +8,14 @@
 import Foundation
 import musicAPI
 import SDWebImage
+import AVFoundation
 
 protocol DetailsPresenterProtocol {
     func viewDidLoad()
     func getSource() -> Song?
     var source: Song? { get set }
-   
+    func playAudio()
+    func pauseAudio()
 }
 
 final class DetailsPresenter {
@@ -22,6 +24,8 @@ final class DetailsPresenter {
     private var artworkURL: String?
     unowned var view: DetailsViewControllerProtocol!
     let router: DetailsRouterProtocol!
+    private var player: AVPlayer?
+    private var isPlaying = false
     
     init(
         view: DetailsViewControllerProtocol,
@@ -36,11 +40,38 @@ final class DetailsPresenter {
     func updateArtistViewURL() {
         artistViewURL = source?.artistViewUrl ?? ""
         }
- 
-   
-}
-extension DetailsPresenter: DetailsPresenterProtocol {
 
+}
+
+extension DetailsPresenter: DetailsPresenterProtocol {
+    func playAudio() {
+          guard let previewUrlString = source?.previewUrl,
+                let previewUrl = URL(string: previewUrlString) else {
+              return
+          }
+          
+          if isPlaying {
+              pauseAudio()
+          } else {
+              player = AVPlayer(url: previewUrl)
+              player?.play()
+              isPlaying = true
+              view?.setButtonImage(UIImage(systemName: "pause.circle")!)
+              
+              // Oynatma tamamlandığında veya durdurulduğunda
+              NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying), name: .AVPlayerItemDidPlayToEndTime, object: player?.currentItem)
+          }
+      }
+
+    @objc func playerDidFinishPlaying() {
+        pauseAudio()
+    }
+    
+    func pauseAudio() {
+        player?.pause()
+        isPlaying = false
+        view?.setButtonImage(UIImage(systemName: "play.circle")!)
+    }
     
     func viewDidLoad() {
     
@@ -48,15 +79,6 @@ extension DetailsPresenter: DetailsPresenterProtocol {
       
         updateArtworkURL()
 
-//                if let artworkURL = artworkURL, let url = URL(string: artworkURL) {
-//                    SDWebImageManager.shared.loadImage(with: url, options: .continueInBackground, progress: nil) { [weak self] (image, _, error, _, _, _) in
-//                        if let error = error {
-//                            print("Image download error: \(error.localizedDescription)")
-//                        } else if let image = image {
-//                            self?.view?.setArtistImage(image)
-//                        }
-//                    }
-//                }
         if let artworkURL = artworkURL, let url = URL(string: artworkURL) {
             URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
                 if let error = error {
