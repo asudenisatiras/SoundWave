@@ -11,6 +11,7 @@
 		D36762552A331A77008C68FF /* ClassName+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36762542A331A77008C68FF /* ClassName+Extension.swift */; };
 		D36762572A331A8A008C68FF /* UITableview+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36762562A331A8A008C68FF /* UITableview+Extension.swift */; };
 		D36762592A331A9F008C68FF /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36762582A331A9F008C68FF /* Collection+Extension.swift */; };
+		D3865CB02A33C8D9008837A8 /* CornerRadius+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3865CAF2A33C8D9008837A8 /* CornerRadius+Extension.swift */; };
 		D388AD562A329E8B00FBA3BD /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D388AD542A329E8B00FBA3BD /* DetailsViewController.swift */; };
 		D388AD572A329E8B00FBA3BD /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D388AD552A329E8B00FBA3BD /* DetailsViewController.xib */; };
 		D388AD592A329EDF00FBA3BD /* DetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D388AD582A329EDF00FBA3BD /* DetailsInteractor.swift */; };
@@ -44,6 +45,7 @@
 		D3A4DD492A327E180069DCEC /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A4DD482A327E180069DCEC /* HomeRouter.swift */; };
 		D3A4DD4C2A3280260069DCEC /* Musics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A4DD4A2A3280260069DCEC /* Musics.swift */; };
 		D3A4DD4D2A3280260069DCEC /* Musics.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3A4DD4B2A3280260069DCEC /* Musics.xib */; };
+		D3EF206F2A33525500E37EAB /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = D3EF206E2A33525500E37EAB /* SDWebImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,7 @@
 		D36762542A331A77008C68FF /* ClassName+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClassName+Extension.swift"; sourceTree = "<group>"; };
 		D36762562A331A8A008C68FF /* UITableview+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableview+Extension.swift"; sourceTree = "<group>"; };
 		D36762582A331A9F008C68FF /* Collection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extension.swift"; sourceTree = "<group>"; };
+		D3865CAF2A33C8D9008837A8 /* CornerRadius+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CornerRadius+Extension.swift"; sourceTree = "<group>"; };
 		D388AD542A329E8B00FBA3BD /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		D388AD552A329E8B00FBA3BD /* DetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsViewController.xib; sourceTree = "<group>"; };
 		D388AD582A329EDF00FBA3BD /* DetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsInteractor.swift; sourceTree = "<group>"; };
@@ -112,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3EF206F2A33525500E37EAB /* SDWebImage in Frameworks */,
 				D3A4DD322A327C880069DCEC /* AVFoundation.framework in Frameworks */,
 				D3A4DD302A327C760069DCEC /* musicAPI in Frameworks */,
 			);
@@ -140,6 +144,7 @@
 				D36762542A331A77008C68FF /* ClassName+Extension.swift */,
 				D36762562A331A8A008C68FF /* UITableview+Extension.swift */,
 				D36762582A331A9F008C68FF /* Collection+Extension.swift */,
+				D3865CAF2A33C8D9008837A8 /* CornerRadius+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -303,6 +308,7 @@
 			name = musicApp;
 			packageProductDependencies = (
 				D3A4DD2F2A327C760069DCEC /* musicAPI */,
+				D3EF206E2A33525500E37EAB /* SDWebImage */,
 			);
 			productName = musicApp;
 			productReference = D3A4DCE62A3279A20069DCEC /* musicApp.app */;
@@ -376,6 +382,9 @@
 				Base,
 			);
 			mainGroup = D3A4DCDD2A3279A20069DCEC;
+			packageReferences = (
+				D3EF206D2A33525500E37EAB /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = D3A4DCE72A3279A20069DCEC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -435,6 +444,7 @@
 				D36762592A331A9F008C68FF /* Collection+Extension.swift in Sources */,
 				D3A4DD292A327BDC0069DCEC /* SplashPresenter.swift in Sources */,
 				D36762552A331A77008C68FF /* ClassName+Extension.swift in Sources */,
+				D3865CB02A33C8D9008837A8 /* CornerRadius+Extension.swift in Sources */,
 				D3A4DD3F2A327DB90069DCEC /* LoadingView.swift in Sources */,
 				D3A4DD2B2A327BFC0069DCEC /* SplashInteractor.swift in Sources */,
 				D3A4DD452A327DFE0069DCEC /* HomePresenter.swift in Sources */,
@@ -790,10 +800,26 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		D3EF206D2A33525500E37EAB /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		D3A4DD2F2A327C760069DCEC /* musicAPI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = musicAPI;
+		};
+		D3EF206E2A33525500E37EAB /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D3EF206D2A33525500E37EAB /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 

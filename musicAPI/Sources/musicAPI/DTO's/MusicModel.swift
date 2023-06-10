@@ -8,8 +8,8 @@
 import Foundation
 
 public struct SearchResponse: Codable {
-    public  let resultCount: Int?
-    public    let results: [Song]?
+    public let resultCount: Int?
+    public let results: [Song]?
 }
 
 public struct Song: Codable {
@@ -29,20 +29,20 @@ public struct Song: Codable {
     public let previewUrl: String?
     public let artworkUrl30: String?
     public let artworkUrl60: String?
-    public   let artworkUrl100: String?
-    public   let collectionPrice: Float?
-    public   let trackPrice: Float?
-    public   let releaseDate: String?
-    public   let collectionExplicitness: String?
-    public  let trackExplicitness: String?
-    public  let discCount: Int?
-    public    let discNumber: Int?
-    public    let trackCount: Int?
-    public    let trackNumber: Int?
-    public    let trackTimeMillis: Int?
-    public    let country: String?
-    public    let currency: String?
-    public    let primaryGenreName: String?
-    public    let isStreamable: Bool?
+    public let artworkUrl100: String?
+    public let collectionPrice: Float?
+    public let trackPrice: Float?
+    public let releaseDate: String?
+    public let collectionExplicitness: String?
+    public let trackExplicitness: String?
+    public let discCount: Int?
+    public let discNumber: Int?
+    public let trackCount: Int?
+    public let trackNumber: Int?
+    public let trackTimeMillis: Int?
+    public let country: String?
+    public let currency: String?
+    public let primaryGenreName: String?
+    public let isStreamable: Bool?
 }
 

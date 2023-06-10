@@ -20,33 +20,53 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="R7M-82-K6g">
+                    <rect key="frame" x="0.0" y="159" width="393" height="693"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LSZ-xq-kGK">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="103"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="music" translatesAutoresizingMaskIntoConstraints="NO" id="aMj-ip-7Qu">
+                            <rect key="frame" x="135" y="65" width="126" height="35"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.96078431610000004" green="0.7607843876" blue="0.74117648599999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstItem="aMj-ip-7Qu" firstAttribute="leading" secondItem="LSZ-xq-kGK" secondAttribute="leading" constant="135" id="0vK-dV-x4b"/>
+                        <constraint firstAttribute="bottom" secondItem="aMj-ip-7Qu" secondAttribute="bottom" constant="3" id="QmO-mk-QtQ"/>
+                        <constraint firstItem="aMj-ip-7Qu" firstAttribute="top" secondItem="LSZ-xq-kGK" secondAttribute="top" constant="65" id="xIO-Cl-sJn"/>
+                        <constraint firstAttribute="trailing" secondItem="aMj-ip-7Qu" secondAttribute="trailing" constant="132" id="z53-I1-PNB"/>
+                    </constraints>
+                </view>
                 <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="zXV-3n-ypM">
-                    <rect key="frame" x="0.0" y="89" width="393" height="56"/>
+                    <rect key="frame" x="0.0" y="103" width="393" height="56"/>
                     <textInputTraits key="textInputTraits"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="xrU-LS-vYf"/>
                     </connections>
                 </searchBar>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="R7M-82-K6g">
-                    <rect key="frame" x="0.0" y="147" width="393" height="705"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="zXV-3n-ypM" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="3lS-NF-Ega"/>
+                <constraint firstItem="zXV-3n-ypM" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="44" id="3lS-NF-Ega"/>
                 <constraint firstAttribute="bottom" secondItem="R7M-82-K6g" secondAttribute="bottom" id="5Ti-vJ-K1G"/>
-                <constraint firstItem="R7M-82-K6g" firstAttribute="top" secondItem="zXV-3n-ypM" secondAttribute="bottom" constant="2" id="Q5q-2P-csG"/>
+                <constraint firstItem="LSZ-xq-kGK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Htf-ci-w4Y"/>
+                <constraint firstItem="R7M-82-K6g" firstAttribute="top" secondItem="zXV-3n-ypM" secondAttribute="bottom" id="Q5q-2P-csG"/>
                 <constraint firstItem="R7M-82-K6g" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Yxm-pF-XON"/>
+                <constraint firstItem="zXV-3n-ypM" firstAttribute="top" secondItem="LSZ-xq-kGK" secondAttribute="bottom" id="c6i-OC-7Rq"/>
                 <constraint firstItem="zXV-3n-ypM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="get-Ym-B49"/>
+                <constraint firstItem="LSZ-xq-kGK" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="kdL-hS-nSz"/>
                 <constraint firstItem="R7M-82-K6g" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="qF9-YE-0qo"/>
+                <constraint firstItem="LSZ-xq-kGK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="rKJ-vg-M3h"/>
                 <constraint firstItem="zXV-3n-ypM" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="sO2-Gw-VZS"/>
             </constraints>
             <point key="canvasLocation" x="130.53435114503816" y="-11.267605633802818"/>
         </view>
     </objects>
     <resources>
+        <image name="music" width="834" height="386"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

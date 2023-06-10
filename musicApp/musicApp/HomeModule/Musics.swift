@@ -6,15 +6,14 @@
 //
 import UIKit
 import musicAPI
-//import SDWebImage
-//import AVFoundation
+import AVFoundation
 
 protocol SongsCellProtocol: AnyObject {
-   // func setImage(_ image: UIImage)
-   // func setTrackName(_ text: String)
+    func setImage(_ image: UIImage)
+    func setSongName(_ text: String)
     func setArtistName(_ text: String)
     func setCollectionName(_ text: String)
-  //  func setButtonImage(_ image: UIImage?)
+  
 }
 class Musics: UITableViewCell {
     
@@ -26,6 +25,8 @@ class Musics: UITableViewCell {
     
     
     @IBOutlet weak var collectionNameLabel: UILabel!
+    
+    
     
     var cellPresenter: SongsCellPresenterProtocol! {
         didSet {
@@ -40,20 +41,31 @@ class Musics: UITableViewCell {
         UIView.animate(withDuration: 0.5) {
             self.alpha = 1.0
         }
+       
     }
+   
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
 
+    @IBAction func playSongButton(_ sender: UIButton) {
+        cellPresenter.playButtonTapped()
+
+    }
 }
 
+extension Musics: SongsCellProtocol {
 
+    
+    
+    func setImage(_ image: UIImage) {
+        DispatchQueue.main.async {
+            self.songsImage.image = image
+        }
+    }
 
-
-    extension Musics: SongsCellProtocol {
-      
         func setArtistName(_ text: String) {
             artistNameLabel.text = text
         }
@@ -61,7 +73,10 @@ class Musics: UITableViewCell {
         func setCollectionName(_ text: String) {
             collectionNameLabel.text = text
         }
-
+        func setSongName(_ text: String) {
+            songNameLabel.text = text
+            
+        }
 
       
 

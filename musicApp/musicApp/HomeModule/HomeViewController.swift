@@ -65,13 +65,14 @@ func hideLoadingView() {
 }
 extension HomeViewController: UITableViewDataSource {
 func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return presenter?.numberOfItems ?? 0
+    return presenter?.numberOfItems ?? 10
 }
 
 
 func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    tableView.separatorStyle = .none
     let cell = tableView.dequeueReusableCell(with: Musics.self, for: indexPath)
-    cell.selectionStyle = .none
+    
     
     if let songs = presenter?.song(indexPath.row) {
         cell.cellPresenter = SongsCellPresenter(view: cell, songs: songs)
@@ -97,18 +98,35 @@ func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) ->
 
 }
 
+//extension HomeViewController: UISearchBarDelegate {
+//func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+//
+//    if let searchTerm = searchBar.text?.removingTurkishDiacritics().uppercased() {
+//        presenter?.fetchSongs(searchTerm)
+//    }
+//
+//    searchBar.resignFirstResponder()
+//}
+//}
+//extension String {
+//func removingTurkishDiacritics() -> String {
+//    return self.folding(options: .diacriticInsensitive, locale: .current)
+//}
+//}
 extension HomeViewController: UISearchBarDelegate {
-func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-    
-    if let searchTerm = searchBar.text?.removingTurkishDiacritics().uppercased() {
-        presenter?.fetchSongs(searchTerm)
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let searchTerm = searchBar.text?.removeDiacritics().uppercased() {
+            presenter?.fetchSongs(searchTerm)
+        }
+        
+        searchBar.resignFirstResponder()
     }
+}
 
-    searchBar.resignFirstResponder()
-}
-}
 extension String {
-func removingTurkishDiacritics() -> String {
-    return self.folding(options: .diacriticInsensitive, locale: .current)
-}
+    func removeDiacritics() -> String {
+        let foldingOptions = NSString.CompareOptions.diacriticInsensitive
+        let locale = Locale.current
+        return self.folding(options: foldingOptions, locale: locale)
+    }
 }
