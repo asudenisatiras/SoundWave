@@ -45,6 +45,7 @@
 		D3A4DD492A327E180069DCEC /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A4DD482A327E180069DCEC /* HomeRouter.swift */; };
 		D3A4DD4C2A3280260069DCEC /* Musics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A4DD4A2A3280260069DCEC /* Musics.swift */; };
 		D3A4DD4D2A3280260069DCEC /* Musics.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3A4DD4B2A3280260069DCEC /* Musics.xib */; };
+		D3B663D52A361A15002377FE /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B663D42A361A15002377FE /* CoreDataManager.swift */; };
 		D3EF206F2A33525500E37EAB /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = D3EF206E2A33525500E37EAB /* SDWebImage */; };
 /* End PBXBuildFile section */
 
@@ -108,6 +109,7 @@
 		D3A4DD482A327E180069DCEC /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		D3A4DD4A2A3280260069DCEC /* Musics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Musics.swift; sourceTree = "<group>"; };
 		D3A4DD4B2A3280260069DCEC /* Musics.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Musics.xib; sourceTree = "<group>"; };
+		D3B663D42A361A15002377FE /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 				D388AD582A329EDF00FBA3BD /* DetailsInteractor.swift */,
 				D388AD5A2A32A00D00FBA3BD /* DetailsPresenter.swift */,
 				D388AD5C2A32A22D00FBA3BD /* DetailsRouter.swift */,
+				D3B663D42A361A15002377FE /* CoreDataManager.swift */,
 			);
 			path = DetailsModule;
 			sourceTree = "<group>";
@@ -438,6 +441,7 @@
 				D3A4DD472A327E0B0069DCEC /* HomeInteractor.swift in Sources */,
 				D3A4DCEC2A3279A20069DCEC /* SceneDelegate.swift in Sources */,
 				D3A4DD492A327E180069DCEC /* HomeRouter.swift in Sources */,
+				D3B663D52A361A15002377FE /* CoreDataManager.swift in Sources */,
 				D388AD592A329EDF00FBA3BD /* DetailsInteractor.swift in Sources */,
 				D36762572A331A8A008C68FF /* UITableview+Extension.swift in Sources */,
 				D388AD5B2A32A00D00FBA3BD /* DetailsPresenter.swift in Sources */,

@@ -11,7 +11,7 @@ import AVFoundation
 protocol SongsCellProtocol: AnyObject {
     func setImage(_ image: UIImage)
     func setSongName(_ text: String)
-    func setArtistName(_ text: String)
+    func setSingerName(_ text: String)
     func setCollectionName(_ text: String)
     func setButtonImage(_ image: UIImage?)
 }
@@ -73,7 +73,7 @@ extension Musics: SongsCellProtocol {
         }
     }
 
-        func setArtistName(_ text: String) {
+        func setSingerName(_ text: String) {
             artistNameLabel.text = text
         }
 

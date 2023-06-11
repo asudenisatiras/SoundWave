@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="collectionLabel" destination="f7h-6y-B77" id="svd-lj-3Un"/>
                 <outlet property="collectionPriceLabel" destination="HSQ-we-YEh" id="n1e-tQ-6IO"/>
+                <outlet property="likedButton" destination="c5d-Al-JoD" id="oCo-yN-Cmr"/>
                 <outlet property="playButton" destination="pDy-r2-8vd" id="iIS-V9-r4v"/>
                 <outlet property="singLabel" destination="7ze-pI-VkA" id="2fe-bR-UIW"/>
                 <outlet property="songImage" destination="O1c-gx-Xgz" id="tuX-WW-Lgg"/>
@@ -157,6 +158,7 @@
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c5d-Al-JoD">
                             <rect key="frame" x="299" y="8" width="52" height="36"/>
+                            <color key="tintColor" red="0.95443172769999995" green="0.75629790929999996" blue="0.73840459530000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
                             <connections>

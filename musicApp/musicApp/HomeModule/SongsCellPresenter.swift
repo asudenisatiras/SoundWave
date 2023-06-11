@@ -163,7 +163,7 @@ extension SongsCellPresenter: SongsCellPresenterProtocol {
                 }
             }
         }
-        view?.setArtistName(songs.artistName ?? "")
+        view?.setSingerName(songs.artistName ?? "")
         view?.setCollectionName(songs.collectionName ?? "")
         view?.setSongName(songs.trackName ?? "")
         updateButtonImage()

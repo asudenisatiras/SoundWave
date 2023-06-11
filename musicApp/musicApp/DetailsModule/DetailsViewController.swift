@@ -45,18 +45,31 @@ class DetailsViewController: UIViewController, AVAudioPlayerDelegate {
     
     @IBOutlet weak var playButton: UIButton!
     
+    
+    @IBOutlet weak var likedButton: UIButton!
+    
     var timeObserverToken: Any?
     var player: AVPlayer?
     var presenter: DetailsPresenterProtocol!
     var audioPlayer: AVAudioPlayer?
     var isPlaying = false
-   
+    let coreDataManager = CoreDataManager.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDidLoad()
+        updateLikeButtonImage()
     }
-    
+    func updateLikeButtonImage() {
+        guard let trackId = presenter.getSource()?.trackId else {
+            return
+        }
+        
+        let heartImageName = coreDataManager.isTrackIdSaved(trackId) ? "heart.fill" : "heart"
+        if let heartImage = UIImage(systemName: heartImageName) {
+            likedButton.setImage(heartImage, for: .normal)
+        }
+    }
     
     @IBAction func singerDetails(_ sender: UIButton) {
         guard let artistURLString = presenter.getSource()?.artistViewUrl,
@@ -89,13 +102,44 @@ class DetailsViewController: UIViewController, AVAudioPlayerDelegate {
   }
     
     @IBAction func likeButtonClicked(_ sender: UIButton) {
+//        guard let trackId = presenter.getSource()?.trackId,
+//                  let artistName = presenter.getSource()?.artistName,
+//                  let trackName = presenter.getSource()?.trackName else {
+//                return
+//            }
+//
+//            let savedTrackIds = coreDataManager.fetchAudioData()
+//
+//            if savedTrackIds.contains(trackId) {
+//                coreDataManager.deleteAudioData(withTrackId: Int64(trackId))
+//                print("Veri silindi. Track ID: \(trackId)")
+//            } else {
+//                coreDataManager.saveAudioData(trackId: Int64(trackId), artistName: artistName, trackName: trackName)
+//                print("Veri kaydedildi. Track ID: \(trackId), Artist Name: \(artistName), Track Name: \(trackName)")
+//            }
+        guard let trackId = presenter.getSource()?.trackId,
+              let artistName = presenter.getSource()?.artistName,
+              let trackName = presenter.getSource()?.trackName else {
+            return
+        }
         
+        if coreDataManager.isTrackIdSaved(trackId) {
+            coreDataManager.deleteAudioData(withTrackId: Int64(trackId))
+            print("Veri silindi. Track ID: \(trackId)")
+            if let heartImage = UIImage(systemName: "heart") {
+                sender.setImage(heartImage, for: .normal) // Beğenilmediğinde görüntülenecek resmin adını ve uzantısını buraya yazın
+            }
+        } else {
+            coreDataManager.saveAudioData(trackId: Int64(trackId), artistName: artistName, trackName: trackName)
+            print("Veri kaydedildi. Track ID: \(trackId), Artist Name: \(artistName), Track Name: \(trackName)")
+            if let heartImages = UIImage(systemName: "heart.fill") {
+                sender.setImage(heartImages, for: .normal) // Beğenildiğinde görüntülenecek resmin adını ve uzantısını buraya yazın
+            }
+        }
+
+        }
+}
         
-    }
-    
-    
-    
-    }
     
 extension DetailsViewController: DetailsViewControllerProtocol {
     func setButtonImage(_ image: UIImage) {
