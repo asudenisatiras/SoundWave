@@ -48,7 +48,7 @@
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="23f-sQ-W52">
                                         <rect key="frame" x="210.33333333333331" y="0.0" width="49.666666666666686" height="124"/>
-                                        <color key="tintColor" red="0.94509804249999996" green="0.62352943419999995" blue="0.58823531870000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="tintColor" red="0.75294119120000003" green="0.5647059083" blue="0.86274516580000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="play.circle" catalog="system"/>
                                         <connections>
@@ -81,6 +81,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="HJG-z5-Uwj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Wnr-4p-mi3"/>
                     <constraint firstItem="HJG-z5-Uwj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Zjj-Ov-XnL"/>

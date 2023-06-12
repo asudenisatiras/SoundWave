@@ -27,16 +27,21 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LSZ-xq-kGK">
                     <rect key="frame" x="0.0" y="0.0" width="393" height="103"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="music" translatesAutoresizingMaskIntoConstraints="NO" id="aMj-ip-7Qu">
-                            <rect key="frame" x="135" y="65" width="126" height="35"/>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newsplash" translatesAutoresizingMaskIntoConstraints="NO" id="yv3-uu-95X">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="103"/>
+                        </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="baslik" translatesAutoresizingMaskIntoConstraints="NO" id="adU-Au-H36">
+                            <rect key="frame" x="112" y="60" width="169" height="26"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                     </subviews>
-                    <color key="backgroundColor" red="0.96078431610000004" green="0.7607843876" blue="0.74117648599999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="aMj-ip-7Qu" firstAttribute="leading" secondItem="LSZ-xq-kGK" secondAttribute="leading" constant="135" id="0vK-dV-x4b"/>
-                        <constraint firstAttribute="bottom" secondItem="aMj-ip-7Qu" secondAttribute="bottom" constant="3" id="QmO-mk-QtQ"/>
-                        <constraint firstItem="aMj-ip-7Qu" firstAttribute="top" secondItem="LSZ-xq-kGK" secondAttribute="top" constant="65" id="xIO-Cl-sJn"/>
-                        <constraint firstAttribute="trailing" secondItem="aMj-ip-7Qu" secondAttribute="trailing" constant="132" id="z53-I1-PNB"/>
+                        <constraint firstAttribute="height" constant="103" id="2HI-gx-zEw"/>
+                        <constraint firstAttribute="trailing" secondItem="yv3-uu-95X" secondAttribute="trailing" id="ZzG-sc-LGc"/>
+                        <constraint firstItem="yv3-uu-95X" firstAttribute="leading" secondItem="LSZ-xq-kGK" secondAttribute="leading" id="ddL-jV-Psb"/>
+                        <constraint firstItem="yv3-uu-95X" firstAttribute="top" secondItem="LSZ-xq-kGK" secondAttribute="top" id="mzE-BK-ZhZ"/>
+                        <constraint firstAttribute="bottom" secondItem="yv3-uu-95X" secondAttribute="bottom" id="tJa-t9-r5N"/>
                     </constraints>
                 </view>
                 <searchBar contentMode="redraw" searchBarStyle="prominent" placeholder="Search Song.." translatesAutoresizingMaskIntoConstraints="NO" id="zXV-3n-ypM">
@@ -50,23 +55,23 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="zXV-3n-ypM" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="44" id="3lS-NF-Ega"/>
                 <constraint firstAttribute="bottom" secondItem="R7M-82-K6g" secondAttribute="bottom" id="5Ti-vJ-K1G"/>
                 <constraint firstItem="LSZ-xq-kGK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Htf-ci-w4Y"/>
                 <constraint firstItem="R7M-82-K6g" firstAttribute="top" secondItem="zXV-3n-ypM" secondAttribute="bottom" id="Q5q-2P-csG"/>
                 <constraint firstItem="R7M-82-K6g" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Yxm-pF-XON"/>
-                <constraint firstItem="zXV-3n-ypM" firstAttribute="top" secondItem="LSZ-xq-kGK" secondAttribute="bottom" id="c6i-OC-7Rq"/>
                 <constraint firstItem="zXV-3n-ypM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="get-Ym-B49"/>
                 <constraint firstItem="LSZ-xq-kGK" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="kdL-hS-nSz"/>
                 <constraint firstItem="R7M-82-K6g" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="qF9-YE-0qo"/>
                 <constraint firstItem="LSZ-xq-kGK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="rKJ-vg-M3h"/>
+                <constraint firstItem="zXV-3n-ypM" firstAttribute="top" secondItem="LSZ-xq-kGK" secondAttribute="bottom" id="s0M-fp-aGK"/>
                 <constraint firstItem="zXV-3n-ypM" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="sO2-Gw-VZS"/>
             </constraints>
             <point key="canvasLocation" x="130.53435114503816" y="-11.267605633802818"/>
         </view>
     </objects>
     <resources>
-        <image name="music" width="834" height="386"/>
+        <image name="baslik" width="282" height="54"/>
+        <image name="newsplash" width="856" height="458"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
