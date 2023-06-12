@@ -33,9 +33,21 @@ var presenter: HomePresenterProtocol!
 
 override func viewDidLoad() {
     super.viewDidLoad()
-    
+    searchBar.searchTextField.accessibilityIdentifier = "searchBar"
+    tableView.accessibilityIdentifier = "tableView"
     presenter?.viewDidLoad()
- 
+    if let searchTextField = searchBar.value(forKey: "searchField") as? UITextField {
+        searchTextField.font = UIFont.systemFont(ofSize: 14)
+        searchTextField.borderStyle = .none
+        searchTextField.layer.cornerRadius = 12
+        searchTextField.layer.borderWidth = 0.3
+        searchTextField.layer.borderColor = UIColor.lightGray.cgColor
+        searchTextField.layer.shadowColor = UIColor.lightGray.cgColor
+        searchTextField.layer.shadowOpacity = 0.8
+        searchTextField.layer.shadowOffset = CGSize(width: 0, height: 4)
+        searchTextField.layer.shadowRadius = 8
+        
+    }
 }
 }
 
@@ -113,21 +125,6 @@ func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) ->
 
 }
 
-//extension HomeViewController: UISearchBarDelegate {
-//func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//
-//    if let searchTerm = searchBar.text?.removingTurkishDiacritics().uppercased() {
-//        presenter?.fetchSongs(searchTerm)
-//    }
-//
-//    searchBar.resignFirstResponder()
-//}
-//}
-//extension String {
-//func removingTurkishDiacritics() -> String {
-//    return self.folding(options: .diacriticInsensitive, locale: .current)
-//}
-//}
 extension HomeViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let searchTerm = searchBar.text?.removeDiacritics().uppercased() {
