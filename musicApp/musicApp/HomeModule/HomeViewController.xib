@@ -27,11 +27,11 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LSZ-xq-kGK">
                     <rect key="frame" x="0.0" y="0.0" width="393" height="103"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newsplash" translatesAutoresizingMaskIntoConstraints="NO" id="yv3-uu-95X">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ekran Resmi 2023-06-11 22.38.32 1" translatesAutoresizingMaskIntoConstraints="NO" id="yv3-uu-95X">
                             <rect key="frame" x="0.0" y="0.0" width="393" height="103"/>
                         </imageView>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="baslik" translatesAutoresizingMaskIntoConstraints="NO" id="adU-Au-H36">
-                            <rect key="frame" x="112" y="60" width="169" height="26"/>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Ekran Resmi 2023-06-14 03.59.56" translatesAutoresizingMaskIntoConstraints="NO" id="adU-Au-H36">
+                            <rect key="frame" x="61" y="58" width="270" height="26"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                     </subviews>
@@ -70,8 +70,8 @@
         </view>
     </objects>
     <resources>
-        <image name="baslik" width="282" height="54"/>
-        <image name="newsplash" width="856" height="458"/>
+        <image name="Ekran Resmi 2023-06-11 22.38.32 1" width="816" height="426"/>
+        <image name="Ekran Resmi 2023-06-14 03.59.56" width="670" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

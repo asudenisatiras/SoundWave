@@ -20,7 +20,7 @@ class CoreDataManager {
         newSong.setValue(trackName, forKey: "trackName")
         do {
             try context.save()
-           // print("Veri kaydedildi. Track ID: \(trackId), Artist Name: \(artistName), Track Name: \(trackName)")
+            
         } catch {
             print("Kayıt başarısız")
         }

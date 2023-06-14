@@ -17,57 +17,89 @@ protocol HomeViewControllerProtocol: AnyObject {
 }
 
 class HomeViewController: BaseViewController  {
-  
+    
     
     @IBOutlet weak var tableView: UITableView!
     
     
     @IBOutlet weak var searchBar: UISearchBar!
-
-var presenter: HomePresenterProtocol!
+    
+    var presenter: HomePresenterProtocol!
     
     
     var isSearchBarEmpty: Bool {
         return searchBar.text?.isEmpty ?? true
     }
-
-override func viewDidLoad() {
-    super.viewDidLoad()
-    searchBar.searchTextField.accessibilityIdentifier = "searchBar"
-    tableView.accessibilityIdentifier = "tableView"
-    presenter?.viewDidLoad()
-    if let searchTextField = searchBar.value(forKey: "searchField") as? UITextField {
-        searchTextField.font = UIFont.systemFont(ofSize: 14)
-        searchTextField.borderStyle = .none
-        searchTextField.layer.cornerRadius = 12
-        searchTextField.layer.borderWidth = 0.3
-        searchTextField.layer.borderColor = UIColor.lightGray.cgColor
-        searchTextField.layer.shadowColor = UIColor.lightGray.cgColor
-        searchTextField.layer.shadowOpacity = 0.8
-        searchTextField.layer.shadowOffset = CGSize(width: 0, height: 4)
-        searchTextField.layer.shadowRadius = 8
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
+        if let navigationBar = navigationController?.navigationBar {
+            navigationBar.setBackgroundImage(UIImage(), for: .default)
+            navigationBar.shadowImage = UIImage()
+            navigationBar.isTranslucent = true
+            searchBar.searchTextField.accessibilityIdentifier = "searchBar"
+            tableView.accessibilityIdentifier = "tableView"
+            presenter?.viewDidLoad()
+            if let searchTextField = searchBar.value(forKey: "searchField") as? UITextField {
+                searchTextField.font = UIFont.systemFont(ofSize: 14)
+                searchTextField.borderStyle = .none
+                searchTextField.layer.cornerRadius = 12
+                searchTextField.layer.borderWidth = 0.3
+                searchTextField.layer.borderColor = UIColor.lightGray.cgColor
+                searchTextField.layer.shadowColor = UIColor.lightGray.cgColor
+                searchTextField.layer.shadowOpacity = 0.8
+                searchTextField.layer.shadowOffset = CGSize(width: 0, height: 4)
+                searchTextField.layer.shadowRadius = 8
+                
+            }
+            
+            
+        }
+        searchBar.delegate = self
     }
-}
-}
+ 
 
+}
 extension HomeViewController: HomeViewControllerProtocol {
 func setupTableView() {
     tableView.dataSource = self
     tableView.delegate = self
     tableView.register(cellType: Musics.self)
-    let backgroundImageView = UIImageView(image: UIImage(named: "song"))
-    backgroundImageView.contentMode = .scaleAspectFit
-    let scaleFactor: CGFloat = 0.8 
-    let scaledWidth = tableView.frame.width * scaleFactor
-    let scaledHeight = tableView.frame.height * scaleFactor
-    let offsetX = (tableView.frame.width - scaledWidth) / 4
-    let offsetY = (tableView.frame.height - scaledHeight) / 4
-    backgroundImageView.frame = CGRect(x: offsetX, y: offsetY, width: scaledWidth, height: scaledHeight)
-    tableView.backgroundView = backgroundImageView
-    tableView.backgroundView?.isHidden = !isSearchBarEmpty
 
-}
+    let backgroundView = UIView(frame: tableView.bounds)
+       
+       let titleLabel = UILabel()
+       titleLabel.text = "Always Discover Something"
+       titleLabel.textAlignment = .center
+       titleLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+    titleLabel.textColor = .systemBlue
+       
+       let subtitleLabel = UILabel()
+       subtitleLabel.text = "Song, Artist, and More"
+       subtitleLabel.textAlignment = .center
+       subtitleLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+       subtitleLabel.textColor = .black
+       
+       backgroundView.addSubview(titleLabel)
+       backgroundView.addSubview(subtitleLabel)
+       
+       titleLabel.translatesAutoresizingMaskIntoConstraints = false
+       subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
+       
+       NSLayoutConstraint.activate([
+           titleLabel.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor),
+           titleLabel.centerYAnchor.constraint(equalTo: backgroundView.centerYAnchor),
+           subtitleLabel.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor),
+           subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8)
+       ])
+       
+       tableView.backgroundView = backgroundView
+       tableView.backgroundView?.isHidden = !isSearchBarEmpty
+   
+    }
+
+
 func reloadData() {
     DispatchQueue.main.async { [weak self] in
         guard let self else { return }
@@ -133,6 +165,12 @@ extension HomeViewController: UISearchBarDelegate {
         
         searchBar.resignFirstResponder()
     }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+           if searchText.isEmpty {
+               presenter?.fetchSongs("") // Boş arama terimini geçirerek yenileme işlemini yapabilirsiniz
+               reloadData() // TableView'ı yeniden yüklemek için reloadData metodunu çağırın
+           }
+       }
 }
 
 extension String {

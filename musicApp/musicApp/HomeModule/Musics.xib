@@ -21,7 +21,7 @@
                         <rect key="frame" x="8" y="8" width="417" height="164"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="mLQ-ZW-Px6">
-                                <rect key="frame" x="139" y="20" width="260" height="124"/>
+                                <rect key="frame" x="128" y="20" width="271" height="124"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WFQ-tW-PBR">
                                         <rect key="frame" x="0.0" y="0.0" width="73" height="124"/>
@@ -47,24 +47,24 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="23f-sQ-W52">
-                                        <rect key="frame" x="210.33333333333331" y="0.0" width="49.666666666666686" height="124"/>
-                                        <color key="tintColor" red="0.75294119120000003" green="0.5647059083" blue="0.86274516580000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <rect key="frame" x="227.66666666666669" y="0.0" width="43.333333333333314" height="124"/>
+                                        <color key="tintColor" red="0.45098042490000001" green="0.7019608021" blue="0.87058818339999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="play.circle" catalog="system"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="play.fill" catalog="system"/>
                                         <connections>
                                             <action selector="playSongButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="vKi-1J-b7w"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QUu-Mk-NdL">
-                                <rect key="frame" x="8" y="11" width="123" height="139"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QUu-Mk-NdL">
+                                <rect key="frame" x="8" y="13" width="100" height="138"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="123" id="m82-TC-82H"/>
+                                    <constraint firstAttribute="width" constant="100" id="m82-TC-82H"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="10"/>
+                                        <real key="value" value="6"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
@@ -72,12 +72,12 @@
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="mLQ-ZW-Px6" secondAttribute="bottom" constant="20" id="8vu-xo-a63"/>
-                            <constraint firstAttribute="bottom" secondItem="QUu-Mk-NdL" secondAttribute="bottom" constant="14" id="DAX-ic-MRG"/>
-                            <constraint firstItem="mLQ-ZW-Px6" firstAttribute="leading" secondItem="QUu-Mk-NdL" secondAttribute="trailing" constant="8" id="V7J-29-ZRr"/>
+                            <constraint firstAttribute="bottom" secondItem="QUu-Mk-NdL" secondAttribute="bottom" constant="13" id="DAX-ic-MRG"/>
+                            <constraint firstItem="mLQ-ZW-Px6" firstAttribute="leading" secondItem="QUu-Mk-NdL" secondAttribute="trailing" constant="20" id="V7J-29-ZRr"/>
                             <constraint firstAttribute="trailing" secondItem="mLQ-ZW-Px6" secondAttribute="trailing" constant="18" id="Wh6-Vu-hp6"/>
                             <constraint firstItem="mLQ-ZW-Px6" firstAttribute="top" secondItem="HJG-z5-Uwj" secondAttribute="top" constant="20" id="dz2-eb-MF8"/>
                             <constraint firstItem="QUu-Mk-NdL" firstAttribute="leading" secondItem="HJG-z5-Uwj" secondAttribute="leading" constant="8" id="ku1-JD-Tas"/>
-                            <constraint firstItem="QUu-Mk-NdL" firstAttribute="top" secondItem="HJG-z5-Uwj" secondAttribute="top" constant="11" id="snc-DY-CLz"/>
+                            <constraint firstItem="QUu-Mk-NdL" firstAttribute="top" secondItem="HJG-z5-Uwj" secondAttribute="top" constant="13" id="snc-DY-CLz"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -107,11 +107,11 @@
                 <outlet property="songNameLabel" destination="9uA-rY-UCa" id="i90-8t-Ulc"/>
                 <outlet property="songsImage" destination="QUu-Mk-NdL" id="WQn-FI-8pc"/>
             </connections>
-            <point key="canvasLocation" x="191.6030534351145" y="19.718309859154932"/>
+            <point key="canvasLocation" x="191.6030534351145" y="37.323943661971832"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="play.circle" catalog="system" width="128" height="123"/>
+        <image name="play.fill" catalog="system" width="117" height="128"/>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

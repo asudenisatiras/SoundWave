@@ -58,7 +58,7 @@ extension DetailsPresenter: DetailsPresenterProtocol {
               isPlaying = true
               view?.setButtonImage(UIImage(systemName: "pause.circle")!)
               
-              // Oynatma tamamlandığında veya durdurulduğunda
+             
               NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying), name: .AVPlayerItemDidPlayToEndTime, object: player?.currentItem)
           }
       }

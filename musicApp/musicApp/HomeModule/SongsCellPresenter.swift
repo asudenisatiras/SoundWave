@@ -92,6 +92,7 @@ import AVFoundation
 protocol SongsCellPresenterProtocol: AnyObject {
     func load()
     func playButtonTapped()
+    
 }
 
 final class SongsCellPresenter {
@@ -105,8 +106,6 @@ final class SongsCellPresenter {
     private var isPlaying = false
     private var isButtonEnabled = true
     private var isCellPlaying = false
-    
-    // Tüm hücrelerin oynatma durumunu tutan bir değişken
     static var isAnyCellPlaying = false
     
     init(
@@ -123,7 +122,7 @@ final class SongsCellPresenter {
         audioPlayer?.play()
         isPlaying = true
         
-        // Şarkı tamamlandığında işlem yapmak için bir Observer ekleyelim
+        
         NotificationCenter.default.addObserver(self, selector: #selector(handleAudioPlayerFinished), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: audioPlayer?.currentItem)
     }
 
@@ -131,7 +130,7 @@ final class SongsCellPresenter {
         audioPlayer?.pause()
         isPlaying = false
         
-        // Observer'ı kaldıralım
+        
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: audioPlayer?.currentItem)
     }
 
@@ -174,7 +173,7 @@ extension SongsCellPresenter: SongsCellPresenterProtocol {
             stopAudio()
             isCellPlaying = false
             updateButtonImage()
-            SongsCellPresenter.isAnyCellPlaying = false // Oynatma durumunu güncelle
+            SongsCellPresenter.isAnyCellPlaying = false
         } else {
             if isButtonEnabled && !SongsCellPresenter.isAnyCellPlaying {
                 isButtonEnabled = false
@@ -190,8 +189,7 @@ extension SongsCellPresenter: SongsCellPresenterProtocol {
                 }
                 isCellPlaying = true
                 updateButtonImage()
-                SongsCellPresenter.isAnyCellPlaying = true // Oynatma durumunu güncelle
-                
+                SongsCellPresenter.isAnyCellPlaying = true
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
                     self?.isButtonEnabled = true
                 }

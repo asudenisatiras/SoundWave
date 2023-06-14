@@ -6,7 +6,6 @@
 //
 
 import UIKit
-//import musicAPI
 import SafariServices
 import AVFoundation
 
@@ -48,6 +47,10 @@ class DetailsViewController: UIViewController, AVAudioPlayerDelegate {
     
     @IBOutlet weak var likedButton: UIButton!
     
+    
+    @IBOutlet weak var progressView: UIProgressView!
+    
+    
     var timeObserverToken: Any?
     var player: AVPlayer?
     var presenter: DetailsPresenterProtocol!
@@ -61,6 +64,7 @@ class DetailsViewController: UIViewController, AVAudioPlayerDelegate {
         likedButton.accessibilityIdentifier = "likedButton"
         presenter.viewDidLoad()
         updateLikeButtonImage()
+        navigationController?.navigationBar.tintColor = .white
         
     }
     func updateLikeButtonImage() {
@@ -85,17 +89,7 @@ class DetailsViewController: UIViewController, AVAudioPlayerDelegate {
     
     
     @IBAction func playSelectedSong(_ sender: UIButton) {
-//        guard let songURLString = presenter.getSource()?.previewUrl,
-//                      let songURL = URL(string: songURLString) else {
-//                    return
-//                }
-//
-//                let playerItem = AVPlayerItem(url: songURL)
-//                player = AVPlayer(playerItem: playerItem)
-//                player?.play()
-//
-//
-//  }
+
         if isPlaying {
                    presenter.pauseAudio()
                } else {
@@ -105,73 +99,7 @@ class DetailsViewController: UIViewController, AVAudioPlayerDelegate {
   }
     
     @IBAction func likeButtonClicked(_ sender: UIButton) {
-        //        guard let trackId = presenter.getSource()?.trackId,
-        //                  let artistName = presenter.getSource()?.artistName,
-        //                  let trackName = presenter.getSource()?.trackName else {
-        //                return
-        //            }
-        //
-        //            let savedTrackIds = coreDataManager.fetchAudioData()
-        //
-        //            if savedTrackIds.contains(trackId) {
-        //                coreDataManager.deleteAudioData(withTrackId: Int64(trackId))
-        //                print("Veri silindi. Track ID: \(trackId)")
-        //            } else {
-        //                coreDataManager.saveAudioData(trackId: Int64(trackId), artistName: artistName, trackName: trackName)
-        //                print("Veri kaydedildi. Track ID: \(trackId), Artist Name: \(artistName), Track Name: \(trackName)")
-        //            }
-        //        guard let trackId = presenter.getSource()?.trackId,
-        //              let artistName = presenter.getSource()?.artistName,
-        //              let trackName = presenter.getSource()?.trackName else {
-        //            return
-        //        }
-        //
-        //        if coreDataManager.isTrackIdSaved(trackId) {
-        //            coreDataManager.deleteAudioData(withTrackId: Int64(trackId))
-        //            print("Veri silindi. Track ID: \(trackId)")
-        //            if let heartImage = UIImage(systemName: "heart") {
-        //                sender.setImage(heartImage, for: .normal) // Beğenilmediğinde görüntülenecek resmin adını ve uzantısını buraya yazın
-        //            }
-        //        } else {
-        //            coreDataManager.saveAudioData(trackId: Int64(trackId), artistName: artistName, trackName: trackName)
-        //            print("Veri kaydedildi. Track ID: \(trackId), Artist Name: \(artistName), Track Name: \(trackName)")
-        //            if let heartImages = UIImage(systemName: "heart.fill") {
-        //                sender.setImage(heartImages, for: .normal) // Beğenildiğinde görüntülenecek resmin adını ve uzantısını buraya yazın
-        //            }
-        //        }
-        //
-        //        }
-//        guard let trackId = presenter.getSource()?.trackId,
-//              let artistName = presenter.getSource()?.artistName,
-//              let trackName = presenter.getSource()?.trackName else {
-//            return
-//        }
-//        
-//        if coreDataManager.isTrackIdSaved(trackId) {
-//            let alert = UIAlertController(title: "Confirmation", message: "Are you sure you want to remove this track from your favorites?", preferredStyle: .alert)
-//            
-//            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-//            
-//            let removeAction = UIAlertAction(title: "Remove", style: .destructive) { _ in
-//                self.coreDataManager.deleteAudioData(withTrackId: Int64(trackId))
-//                print("Data deleted. Track ID: \(trackId)")
-//                if let heartImage = UIImage(systemName: "heart") {
-//                    sender.setImage(heartImage, for: .normal) // Set the image to be displayed when the track is not liked
-//                }
-//            }
-//            
-//            alert.addAction(cancelAction)
-//            alert.addAction(removeAction)
-//            
-//            present(alert, animated: true, completion: nil)
-//        } else {
-//            coreDataManager.saveAudioData(trackId: Int64(trackId), artistName: artistName, trackName: trackName)
-//            print("Data saved. Track ID: \(trackId), Artist Name: \(artistName), Track Name: \(trackName)")
-//            if let heartImages = UIImage(systemName: "heart.fill") {
-//                sender.setImage(heartImages, for: .normal) // Set the image to be displayed when the track is liked
-//            }
-//        }
-//    }
+      
     guard let trackId = presenter.getSource()?.trackId,
                  let artistName = presenter.getSource()?.artistName,
                  let trackName = presenter.getSource()?.trackName else {
