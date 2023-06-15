@@ -5,8 +5,7 @@
 //  Created by Asude Nisa Tıraş on 9.06.2023.
 //
 import UIKit
-import musicAPI
-import AVFoundation
+
 
 protocol SongsCellProtocol: AnyObject {
     func setImage(_ image: UIImage)
@@ -49,7 +48,7 @@ class Musics: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
+       
     }
 
     @IBAction func playSongButton(_ sender: UIButton) {

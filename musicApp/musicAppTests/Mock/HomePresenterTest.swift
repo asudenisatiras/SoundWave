@@ -7,6 +7,7 @@
 
 import XCTest
 @testable import musicApp
+import musicAPI
 
 final class HomePresenterTest: XCTestCase {
 
@@ -34,30 +35,30 @@ final class HomePresenterTest: XCTestCase {
         
         XCTAssertFalse(view.isInvokedSetupTableView)
         XCTAssertEqual(view.invokedSetupTableViewCount, 0)
-       
-        XCTAssertFalse(interactor.isInvokedFetchSearchSongs)
-        XCTAssertEqual(interactor.invokedFetchSearchSongsCount, 0)
-        
+    
         presenter.viewDidLoad()
         
         XCTAssertTrue(view.isInvokedSetupTableView)
         XCTAssertEqual(view.invokedSetupTableViewCount, 1)
        
-      //  XCTAssertTrue(interactor.isInvokedFetchSearchSongs)
-      //  XCTAssertEqual(interactor.invokedFetchSearchSongsCount, 1)
         
     }
-    func test_fetchNewsOutput() {
-        
+    func test_fetchSongOutput() {
+
+      
+        let results: [Song] = []
+       
         XCTAssertFalse(view.isInvokedHideLoading)
-       // XCTAssertEqual(presenter.numberOfItems(), 0)
+        XCTAssertEqual(presenter.numberOfItems, 0)
         XCTAssertFalse(view.isInvokedReloadData)
         
-     //   presenter.fetchSongsOutput(.success(.response))
+        presenter.fetchSongs("Tarkan")
+        presenter.fetchSongsOutput(.success(results))
         
-        XCTAssertTrue(view.isInvokedHideLoading)
-      //  XCTAssertEqual(presenter.numberOfItems(), 39)
-        XCTAssertTrue(view.isInvokedReloadData)
+        XCTAssertEqual(presenter.numberOfItems, 0)
+        XCTAssertTrue(interactor.isInvokedFetchSearchSongs)
+        XCTAssertEqual(interactor.invokedFetchSearchSongsCount, 1)
+    
     }
 
 

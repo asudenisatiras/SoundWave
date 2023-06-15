@@ -57,6 +57,10 @@ class DetailsViewController: UIViewController, AVAudioPlayerDelegate {
     var audioPlayer: AVAudioPlayer?
     var isPlaying = false
     let coreDataManager = CoreDataManager.shared
+    var displayLink: CADisplayLink?
+    deinit {
+        player?.removeObserver(self, forKeyPath: "status")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,8 +69,23 @@ class DetailsViewController: UIViewController, AVAudioPlayerDelegate {
         presenter.viewDidLoad()
         updateLikeButtonImage()
         navigationController?.navigationBar.tintColor = .white
+        if let player = player {
+            let interval = CMTime(seconds: 0.1, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
+            timeObserverToken = player.addPeriodicTimeObserver(forInterval: interval, queue: .main) { [weak self] time in
+                self?.updateProgressView()
+            }
+        }
         
     }
+    override func viewWillDisappear(_ animated: Bool) {
+           super.viewWillDisappear(animated)
+           
+           
+           presenter.pauseAudio()
+           stopProgressViewAnimation()
+           player?.pause()
+           isPlaying = false
+       }
     func updateLikeButtonImage() {
         guard let trackId = presenter.getSource()?.trackId else {
             return
@@ -89,15 +108,103 @@ class DetailsViewController: UIViewController, AVAudioPlayerDelegate {
     
     
     @IBAction func playSelectedSong(_ sender: UIButton) {
-
+//
+//        if isPlaying {
+//                   presenter.pauseAudio()
+//               } else {
+//                   presenter.playAudio()
+//               }
         if isPlaying {
-                   presenter.pauseAudio()
-               } else {
-                   presenter.playAudio()
-               }
+              presenter.pauseAudio()
+              stopProgressViewAnimation()
+              player?.pause()
+              player?.seek(to: CMTime(seconds: 0, preferredTimescale: 1))
+              isPlaying = false
+          } else {
+              if player == nil {
+                  guard let audioUrlString = presenter.getSource()?.previewUrl,
+                        let audioUrl = URL(string: audioUrlString) else {
+                      return
+                  }
+                  
+                  let playerItem = AVPlayerItem(url: audioUrl)
+                  player = AVPlayer(playerItem: playerItem)
+                  player?.addObserver(self, forKeyPath: "status", options: .new, context: nil)
+                  
+                  // Kullanıcı bir kere çal düğmesine bastığında, şarkının tamamen çalmasını beklemek için bir gözlemci ekleyin.
+                  NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: playerItem)
+              }
+              
+              player?.play()
+              isPlaying = true
+              startProgressViewAnimation()
+          }
+          
+          // Butonun görüntüsünü güncelle
+          updatePlayButtonImage()
+          
+          // Butonun etkinliğini devre dışı bırak
+          sender.isEnabled = false
+          
+          // Belirli bir süre sonra butonun etkinliğini tekrar etkinleştir
+          DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+              sender.isEnabled = true
+          }
+      }
+
+      func updatePlayButtonImage() {
+          let buttonImageName = isPlaying ? "pause.fill" : "play.fill"
+          if let buttonImage = UIImage(systemName: buttonImageName) {
+              playButton.setImage(buttonImage, for: .normal)
+          }
+      
   
   }
-    
+    @objc func playerDidFinishPlaying(notification: NSNotification) {
+        presenter.pauseAudio()
+        stopProgressViewAnimation()
+        player?.pause()
+        player?.seek(to: CMTime(seconds: 0, preferredTimescale: 1))
+        isPlaying = false
+    }
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "status", let player = object as? AVPlayer, player == self.player {
+            if let status = change?[.newKey] as? Int, status == AVPlayer.Status.readyToPlay.rawValue {
+                // AVPlayer hazır durumda, ilerleme çubuğunu güncelleme işlemlerini burada gerçekleştirin
+            }
+        }
+    }
+
+    private func startProgressViewAnimation() {
+        progressView.setProgress(0.0, animated: false)
+        if displayLink == nil {
+            displayLink = CADisplayLink(target: self, selector: #selector(updateProgressView))
+            displayLink?.add(to: .main, forMode: .common)
+        }
+    }
+
+    private func stopProgressViewAnimation() {
+        displayLink?.invalidate()
+        displayLink = nil
+        progressView.setProgress(0.0, animated: false)
+    }
+
+
+    @objc private func updateProgressView() {
+        guard let player = player else {
+            return
+        }
+        
+        let currentTime = player.currentTime().seconds
+        let duration = player.currentItem?.duration.seconds ?? 0.0
+        
+        if duration > 0 {
+            let progress = Float(currentTime / duration)
+            progressView.setProgress(progress, animated: true)
+        } else {
+            progressView.setProgress(0.0, animated: false)
+        }
+    }
     @IBAction func likeButtonClicked(_ sender: UIButton) {
       
     guard let trackId = presenter.getSource()?.trackId,
@@ -115,7 +222,7 @@ class DetailsViewController: UIViewController, AVAudioPlayerDelegate {
                    self.coreDataManager.deleteAudioData(withTrackId: Int64(trackId))
                    print("Data deleted. Track ID: \(trackId)")
                    if let heartImage = UIImage(systemName: "heart") {
-                       sender.setImage(heartImage, for: .normal) // Set the image to be displayed when the track is not liked
+                       sender.setImage(heartImage, for: .normal)
                    }
                }
                
@@ -127,7 +234,7 @@ class DetailsViewController: UIViewController, AVAudioPlayerDelegate {
                coreDataManager.saveAudioData(trackId: Int64(trackId), artistName: artistName, trackName: trackName)
                print("Data saved. Track ID: \(trackId), Artist Name: \(artistName), Track Name: \(trackName)")
                if let heartImages = UIImage(systemName: "heart.fill") {
-                   sender.setImage(heartImages, for: .normal) // Set the image to be displayed when the track is liked
+                   sender.setImage(heartImages, for: .normal) 
                }
                
                let alert = UIAlertController(title: "Success", message: "Track has been saved to your favorites.", preferredStyle: .alert)

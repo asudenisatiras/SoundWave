@@ -19,16 +19,10 @@ final class SplashViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
         presenter.viewDidAppear()
     }
 
-//    var presenter: SplashPresenterProtocol!
-//
-//     override func viewDidAppear(_ animated: Bool) {
-//         super.viewDidAppear(animated)
-//         presenter.viewDidAppear()
-//     }
 
 }
 

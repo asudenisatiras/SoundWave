@@ -75,8 +75,6 @@ final class iTunesMusicUITests: XCTestCase {
     func testExampleController() {
         
         
-        
-        
         let app = XCUIApplication()
         app.launch()
        
@@ -94,13 +92,7 @@ final class iTunesMusicUITests: XCTestCase {
         let likedbuttonButton = app/*@START_MENU_TOKEN@*/.buttons["likedButton"]/*[[".buttons[\"love\"]",".buttons[\"likedButton\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
         likedbuttonButton.tap()
         
-              
-        
-      
-         
-
-        
-
+       
     }
 
 }

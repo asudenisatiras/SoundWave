@@ -25,8 +25,6 @@ class HomeViewController: BaseViewController  {
     @IBOutlet weak var searchBar: UISearchBar!
     
     var presenter: HomePresenterProtocol!
-    
-    
     var isSearchBarEmpty: Bool {
         return searchBar.text?.isEmpty ?? true
     }
@@ -42,8 +40,10 @@ class HomeViewController: BaseViewController  {
             tableView.accessibilityIdentifier = "tableView"
             presenter?.viewDidLoad()
             if let searchTextField = searchBar.value(forKey: "searchField") as? UITextField {
-                searchTextField.font = UIFont.systemFont(ofSize: 14)
+                
                 searchTextField.borderStyle = .none
+                searchTextField.font = UIFont.systemFont(ofSize: 14)
+                
                 searchTextField.layer.cornerRadius = 12
                 searchTextField.layer.borderWidth = 0.3
                 searchTextField.layer.borderColor = UIColor.lightGray.cgColor
@@ -51,14 +51,24 @@ class HomeViewController: BaseViewController  {
                 searchTextField.layer.shadowOpacity = 0.8
                 searchTextField.layer.shadowOffset = CGSize(width: 0, height: 4)
                 searchTextField.layer.shadowRadius = 8
-                
+
             }
-            
+       
             
         }
         searchBar.delegate = self
     }
- 
+   
+    func stopPlayingMusic() {
+        if let visibleCells = tableView.visibleCells as? [Musics] {
+            for cell in visibleCells {
+                cell.cellPresenter.stopAudio()
+                cell.cellPresenter.updateButtonImage()
+            }
+           
+        }
+    }
+
 
 }
 extension HomeViewController: HomeViewControllerProtocol {
@@ -167,8 +177,8 @@ extension HomeViewController: UISearchBarDelegate {
     }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
            if searchText.isEmpty {
-               presenter?.fetchSongs("") // Boş arama terimini geçirerek yenileme işlemini yapabilirsiniz
-               reloadData() // TableView'ı yeniden yüklemek için reloadData metodunu çağırın
+               presenter?.fetchSongs("")
+               reloadData()
            }
        }
 }

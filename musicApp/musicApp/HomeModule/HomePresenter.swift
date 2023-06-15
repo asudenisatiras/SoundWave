@@ -14,7 +14,7 @@ protocol HomePresenterProtocol: AnyObject {
     var numberOfItems: Int { get }
     func song(_ index: Int) -> Song?
     func fetchSongs(_ word: String)
-   func didSelectRowAt(index: Int)
+    func didSelectRowAt(index: Int)
 }
 
 class HomePresenter {
@@ -63,7 +63,7 @@ extension HomePresenter: HomePresenterProtocol {
         songs.count
     }
     
-  
+
 
 }
 extension HomePresenter: HomeInteractorOutput {

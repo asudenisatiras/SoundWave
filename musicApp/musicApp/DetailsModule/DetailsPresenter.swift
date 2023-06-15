@@ -56,7 +56,7 @@ extension DetailsPresenter: DetailsPresenterProtocol {
               player = AVPlayer(url: previewUrl)
               player?.play()
               isPlaying = true
-              view?.setButtonImage(UIImage(systemName: "pause.circle")!)
+              view?.setButtonImage(UIImage(systemName: "pause.fill")!)
               
              
               NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying), name: .AVPlayerItemDidPlayToEndTime, object: player?.currentItem)
@@ -70,7 +70,7 @@ extension DetailsPresenter: DetailsPresenterProtocol {
     func pauseAudio() {
         player?.pause()
         isPlaying = false
-        view?.setButtonImage(UIImage(systemName: "play.circle")!)
+        view?.setButtonImage(UIImage(systemName: "play.fill")!)
     }
     
     func viewDidLoad() {
