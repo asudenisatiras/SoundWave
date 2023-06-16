@@ -37,3 +37,8 @@ https://itunes.apple.com/search?term=\(term)&country=tr&entity=song&attribute=mi
 ### Application Screen 
 
 
+
+
+https://github.com/asudenisatiras/asudenisatiras_finalhw/assets/127339561/bbaf7bd4-4600-435f-9176-83380d0d2158
+
+
