@@ -85,6 +85,7 @@ extension SongsCellPresenter: SongsCellPresenterProtocol {
                 }
             }
         }
+        
         view?.setSingerName(songs.artistName ?? "")
         view?.setCollectionName(songs.collectionName ?? "")
         view?.setSongName(songs.trackName ?? "")

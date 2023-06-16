@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 protocol HomeViewControllerProtocol: AnyObject {
     func setupTableView()
     func reloadData()
@@ -53,8 +52,7 @@ class HomeViewController: BaseViewController  {
                 searchTextField.layer.shadowRadius = 8
 
             }
-       
-            
+                   
         }
         searchBar.delegate = self
     }
@@ -68,8 +66,6 @@ class HomeViewController: BaseViewController  {
            
         }
     }
-
-
 }
 extension HomeViewController: HomeViewControllerProtocol {
 func setupTableView() {
@@ -93,7 +89,7 @@ func setupTableView() {
        
        backgroundView.addSubview(titleLabel)
        backgroundView.addSubview(subtitleLabel)
-       
+    
        titleLabel.translatesAutoresizingMaskIntoConstraints = false
        subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
        
@@ -117,7 +113,8 @@ func reloadData() {
         self.tableView.backgroundView?.isHidden = !self.isSearchBarEmpty
     }
 }
-
+   
+ 
 func showError(_ message: String) {
     showAlert("Error", message)
 }
@@ -172,9 +169,10 @@ extension HomeViewController: UISearchBarDelegate {
         if let searchTerm = searchBar.text?.removeDiacritics().uppercased() {
             presenter?.fetchSongs(searchTerm)
         }
-        
+
         searchBar.resignFirstResponder()
     }
+  
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
            if searchText.isEmpty {
                presenter?.fetchSongs("")

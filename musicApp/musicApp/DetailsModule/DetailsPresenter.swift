@@ -35,34 +35,34 @@ final class DetailsPresenter {
         self.router = router
     }
     func updateArtworkURL() {
-          artworkURL = source?.artworkUrl100 ?? ""
-      }
+        artworkURL = source?.artworkUrl100 ?? ""
+    }
     func updateArtistViewURL() {
         artistViewURL = source?.artistViewUrl ?? ""
-        }
-
+    }
+    
 }
 
 extension DetailsPresenter: DetailsPresenterProtocol {
     func playAudio() {
-          guard let previewUrlString = source?.previewUrl,
-                let previewUrl = URL(string: previewUrlString) else {
-              return
-          }
-          
-          if isPlaying {
-              pauseAudio()
-          } else {
-              player = AVPlayer(url: previewUrl)
-              player?.play()
-              isPlaying = true
-              view?.setButtonImage(UIImage(systemName: "pause.fill")!)
-              
-             
-              NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying), name: .AVPlayerItemDidPlayToEndTime, object: player?.currentItem)
-          }
-      }
-
+        guard let previewUrlString = source?.previewUrl,
+              let previewUrl = URL(string: previewUrlString) else {
+            return
+        }
+        
+        if isPlaying {
+            pauseAudio()
+        } else {
+            player = AVPlayer(url: previewUrl)
+            player?.play()
+            isPlaying = true
+            view?.setButtonImage(UIImage(systemName: "pause.fill")!)
+            
+            
+            NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying), name: .AVPlayerItemDidPlayToEndTime, object: player?.currentItem)
+        }
+    }
+    
     @objc func playerDidFinishPlaying() {
         pauseAudio()
     }
@@ -74,11 +74,11 @@ extension DetailsPresenter: DetailsPresenterProtocol {
     }
     
     func viewDidLoad() {
-    
+        
         guard let details = getSource() else { return }
-      
+        
         updateArtworkURL()
-
+        
         if let artworkURL = artworkURL, let url = URL(string: artworkURL) {
             URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
                 if let error = error {
@@ -90,7 +90,7 @@ extension DetailsPresenter: DetailsPresenterProtocol {
                 }
             }.resume()
         }
-
+        
         
         view.setArtistName(details.artistName ?? "")
         view.setCollection(details.collectionName ?? "")
@@ -102,15 +102,14 @@ extension DetailsPresenter: DetailsPresenterProtocol {
         } else {
             view.setSongPrice("")
         }
-     
+        
         if let collectionPrice = details.collectionPrice {
             let priceString = String(format: "%.2f", collectionPrice)
             view.setCollectionPrice(priceString)
         } else {
             view.setCollectionPrice("")
         }
-
-
+        
     }
     func getSource() -> Song? {
         return source

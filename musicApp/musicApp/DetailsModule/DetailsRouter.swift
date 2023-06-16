@@ -8,7 +8,7 @@
 import Foundation
 
 protocol DetailsRouterProtocol {
-   
+    
 }
 
 final class DetailsRouter: DetailsRouterProtocol {
@@ -16,12 +16,12 @@ final class DetailsRouter: DetailsRouterProtocol {
     weak var viewController: DetailsViewController?
     
     static func createModule() -> DetailsViewController {
-         let view = DetailsViewController()
-         let router = DetailsRouter()
-         let presenter = DetailsPresenter(view: view, router: router)
-         view.presenter = presenter
-         router.viewController = view
-         return view
-     }
+        let view = DetailsViewController()
+        let router = DetailsRouter()
+        let presenter = DetailsPresenter(view: view, router: router)
+        view.presenter = presenter
+        router.viewController = view
+        return view
+    }
     
 }

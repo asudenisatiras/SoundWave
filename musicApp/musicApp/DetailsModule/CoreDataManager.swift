@@ -5,7 +5,6 @@
 //  Created by Asude Nisa Tıraş on 11.06.2023.
 //
 
-
 import CoreData
 import UIKit
 

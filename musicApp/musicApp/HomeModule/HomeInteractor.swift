@@ -5,36 +5,6 @@
 //  Created by Asude Nisa Tıraş on 9.06.2023.
 //
 
-//import musicAPI
-//
-//protocol HomeInteractorOutputProtocol: AnyObject {
-//    func songsFetchedSuccessfully(_ songs: [Song])
-//    func songsFetchFailed(with error: Error)
-//}
-//
-//protocol HomeInteractorProtocol: AnyObject {
-//    var presenter: HomeInteractorOutputProtocol? { get set }
-//    func fetchSongs(with keyword: String)
-//}
-//
-//class HomeInteractor: HomeInteractorProtocol {
-//    weak var presenter: HomeInteractorOutputProtocol?
-//
-//    let musicService = MusicService()
-//
-//    func fetchSongs(with keyword: String) {
-//        musicService.searchSongs(wordName: keyword) { [weak self] result in
-//            guard let self = self else { return }
-//
-//            switch result {
-//            case .success(let songs):
-//                self.presenter?.songsFetchedSuccessfully(songs)
-//            case .failure(let error):
-//                self.presenter?.songsFetchFailed(with: error)
-//            }
-//        }
-//    }
-//}
 import Foundation
 import musicAPI
 
@@ -45,7 +15,7 @@ protocol HomeInteractorProtocol: AnyObject {
 }
 
 protocol HomeInteractorOutput: AnyObject {
-   
+    
     func fetchSongsOutput(_ result: SongsSourcesResult)
 }
 
@@ -62,7 +32,7 @@ extension HomeInteractor: HomeInteractorProtocol {
         musicService.searchSongs(wordName: word) { [weak self] result in
             guard let self = self else { return }
             self.output?.fetchSongsOutput(result)
-          
+            
         }
         
     }

@@ -24,17 +24,20 @@
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newsplash" translatesAutoresizingMaskIntoConstraints="NO" id="Y7h-3y-KuP">
                             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         </imageView>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="splashh" translatesAutoresizingMaskIntoConstraints="NO" id="atJ-Og-a4l">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splashh" translatesAutoresizingMaskIntoConstraints="NO" id="atJ-Og-a4l">
                             <rect key="frame" x="92" y="355" width="209" height="142"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="Y7h-3y-KuP" secondAttribute="bottom" id="3Se-ag-3Lh"/>
+                        <constraint firstItem="atJ-Og-a4l" firstAttribute="leading" secondItem="qWN-8h-lG0" secondAttribute="leading" constant="92" id="DqU-Gy-7he"/>
                         <constraint firstAttribute="trailing" secondItem="Y7h-3y-KuP" secondAttribute="trailing" id="E2b-jz-L6K"/>
                         <constraint firstItem="Y7h-3y-KuP" firstAttribute="leading" secondItem="qWN-8h-lG0" secondAttribute="leading" id="ITF-hV-V9N"/>
                         <constraint firstItem="Y7h-3y-KuP" firstAttribute="top" secondItem="qWN-8h-lG0" secondAttribute="top" id="Rqh-eE-5MU"/>
+                        <constraint firstItem="atJ-Og-a4l" firstAttribute="top" secondItem="qWN-8h-lG0" secondAttribute="top" constant="355" id="bDn-3m-HL5"/>
+                        <constraint firstAttribute="trailing" secondItem="atJ-Og-a4l" secondAttribute="trailing" constant="92" id="bPx-A4-g3h"/>
+                        <constraint firstAttribute="bottom" secondItem="atJ-Og-a4l" secondAttribute="bottom" constant="355" id="nML-Pv-T1h"/>
                     </constraints>
                 </view>
             </subviews>

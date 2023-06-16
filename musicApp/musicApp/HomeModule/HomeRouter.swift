@@ -19,20 +19,20 @@ enum HomeRoutes {
 final class HomeRouter {
     private var isMusicPlaying: Bool {
         return SongsCellPresenter.isAnyCellPlaying
-    } //burası
+    }
     
     weak var viewController: HomeViewController?
     
     static func createModule() -> HomeViewController {
-         let view = HomeViewController()
-         let interactor = HomeInteractor()
-         let router = HomeRouter()
-         let presenter = HomePresenter(view: view, router: router, interactor: interactor)
-         view.presenter = presenter
-         interactor.output = presenter
-         router.viewController = view
-         return view
-     }
+        let view = HomeViewController()
+        let interactor = HomeInteractor()
+        let router = HomeRouter()
+        let presenter = HomePresenter(view: view, router: router, interactor: interactor)
+        view.presenter = presenter
+        interactor.output = presenter
+        router.viewController = view
+        return view
+    }
     
 }
 
@@ -43,8 +43,8 @@ extension HomeRouter: HomeRouterProtocol {
         case .detail(let source):
             if isMusicPlaying {
                 viewController?.stopPlayingMusic()
-            }//burası
-
+            }
+            
             let detailVC = DetailsRouter.createModule()
             detailVC.presenter.source = source
             viewController?.navigationController?.pushViewController(detailVC, animated: true)

@@ -34,21 +34,21 @@
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newsplash" translatesAutoresizingMaskIntoConstraints="NO" id="C0q-kO-BSZ">
                             <rect key="frame" x="0.0" y="0.0" width="393" height="103"/>
                         </imageView>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home" translatesAutoresizingMaskIntoConstraints="NO" id="gwN-pf-0uc">
-                            <rect key="frame" x="113" y="58" width="189" height="41"/>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home" translatesAutoresizingMaskIntoConstraints="NO" id="gwN-pf-0uc">
+                            <rect key="frame" x="91" y="54" width="215" height="45"/>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="C0q-kO-BSZ" firstAttribute="leading" secondItem="NfD-63-x2N" secondAttribute="leading" id="9rw-uK-w6w"/>
-                        <constraint firstItem="gwN-pf-0uc" firstAttribute="leading" secondItem="NfD-63-x2N" secondAttribute="leading" constant="113" id="Jqy-PJ-Opx"/>
+                        <constraint firstItem="gwN-pf-0uc" firstAttribute="leading" secondItem="NfD-63-x2N" secondAttribute="leading" constant="91" id="Jqy-PJ-Opx"/>
                         <constraint firstAttribute="height" constant="104" id="Kry-KA-zqC"/>
-                        <constraint firstAttribute="trailing" secondItem="gwN-pf-0uc" secondAttribute="trailing" constant="91" id="VWR-26-DtW"/>
+                        <constraint firstAttribute="trailing" secondItem="gwN-pf-0uc" secondAttribute="trailing" constant="87" id="VWR-26-DtW"/>
                         <constraint firstAttribute="bottom" secondItem="gwN-pf-0uc" secondAttribute="bottom" constant="5" id="Vlm-am-18J"/>
                         <constraint firstAttribute="trailing" secondItem="C0q-kO-BSZ" secondAttribute="trailing" id="YcQ-tU-BPL"/>
                         <constraint firstItem="C0q-kO-BSZ" firstAttribute="top" secondItem="NfD-63-x2N" secondAttribute="top" id="eu6-Jz-WTS"/>
                         <constraint firstAttribute="bottom" secondItem="C0q-kO-BSZ" secondAttribute="bottom" constant="1" id="iYM-qg-d2t"/>
-                        <constraint firstItem="gwN-pf-0uc" firstAttribute="top" secondItem="NfD-63-x2N" secondAttribute="top" constant="58" id="jDa-gI-mKB"/>
+                        <constraint firstItem="gwN-pf-0uc" firstAttribute="top" secondItem="NfD-63-x2N" secondAttribute="top" constant="54" id="jDa-gI-mKB"/>
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Phf-gE-ibE">

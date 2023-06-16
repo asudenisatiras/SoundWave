@@ -21,7 +21,6 @@ public class MusicService: SongsServiceProtocol {
     
     public func searchSongs(wordName: String, completion: @escaping (Result<[Song], Error>) -> Void) {
         let encodedTerm = wordName.replacingOccurrences(of: " ", with: "+")
-        //let urlString = "https://itunes.apple.com/search?term=\(encodedTerm)"
         let urlString = "https://itunes.apple.com/search?term=\(encodedTerm)&country=tr&entity=song&attribute=mixTerm"
         AF.request(urlString).responseData { response in
             switch response.result {
@@ -33,7 +32,7 @@ public class MusicService: SongsServiceProtocol {
                         completion(.success(songs))
                         print("Retrieved data: \(songs)")
                     } else {
-                        // Handle the case when songs is nil
+                        
                         completion(.failure(YourErrorType.nilSongsError))
                     }
                 } catch {
