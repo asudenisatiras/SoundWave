@@ -1,5 +1,7 @@
 
-<img width="404" alt="Ekran Resmi 2023-06-16 15 09 02" src="https://github.com/asudenisatiras/asudenisatiras_finalhw/assets/127339561/526a29e0-a1a8-4a74-a41b-92f90f986c98">
+<img width="337" alt="Ekran Resmi 2023-06-16 03 12 51" src="https://github.com/asudenisatiras/asudenisatiras_finalhw/assets/127339561/ded63be5-9cd5-4fb7-8191-eefacc134836">
+
+
 
 
 # SoundWave Music Application
