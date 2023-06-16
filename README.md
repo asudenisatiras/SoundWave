@@ -11,14 +11,14 @@ Do you want to have a pleasant music experience with your endless music collecti
 
 ## Features Used
 - VIPER DESIGN PATTERN
-- UIKit
-- TableView 
-- SearchBarController 
+- UIKit 
 - Core Data
 - AVPlayer 
 - Alamofire
 - SDWebImage
+- Delegation Pattern
 - AutoLayout
+- Modular API Files
 - AVFoundation
 - Unit Test
 - UI Test
