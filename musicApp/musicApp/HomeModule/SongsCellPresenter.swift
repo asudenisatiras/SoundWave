@@ -54,7 +54,6 @@ final class SongsCellPresenter {
         audioPlayer?.pause()
         isPlaying = false
         
-        
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: audioPlayer?.currentItem)
     }
 

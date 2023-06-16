@@ -52,7 +52,7 @@ final class HomePresenterTest: XCTestCase {
         XCTAssertEqual(presenter.numberOfItems, 0)
         XCTAssertFalse(view.isInvokedReloadData)
         
-        presenter.fetchSongs("Tarkan")
+        presenter.fetchSongs("Edis")
         presenter.fetchSongsOutput(.success(results))
         
         XCTAssertEqual(presenter.numberOfItems, 0)

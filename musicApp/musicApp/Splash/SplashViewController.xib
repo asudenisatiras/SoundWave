@@ -21,8 +21,12 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qWN-8h-lG0">
                     <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ekran Resmi 2023-06-11 22.38.32" translatesAutoresizingMaskIntoConstraints="NO" id="Y7h-3y-KuP">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newsplash" translatesAutoresizingMaskIntoConstraints="NO" id="Y7h-3y-KuP">
                             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="splashh" translatesAutoresizingMaskIntoConstraints="NO" id="atJ-Og-a4l">
+                            <rect key="frame" x="92" y="355" width="209" height="142"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -46,7 +50,8 @@
         </view>
     </objects>
     <resources>
-        <image name="Ekran Resmi 2023-06-11 22.38.32" width="426" height="816"/>
+        <image name="newsplash" width="856" height="458"/>
+        <image name="splashh" width="674" height="440"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

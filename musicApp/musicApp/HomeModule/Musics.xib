@@ -48,7 +48,7 @@
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="23f-sQ-W52">
                                         <rect key="frame" x="227.66666666666669" y="0.0" width="43.333333333333314" height="124"/>
-                                        <color key="tintColor" red="0.45098042490000001" green="0.7019608021" blue="0.87058818339999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="tintColor" red="0.74117648599999997" green="0.56078433989999998" blue="0.86274516580000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="play.fill" catalog="system"/>
                                         <connections>

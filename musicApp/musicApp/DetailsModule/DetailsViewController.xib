@@ -31,20 +31,20 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NfD-63-x2N">
                     <rect key="frame" x="0.0" y="0.0" width="393" height="104"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ekran Resmi 2023-06-11 22.38.32 1" translatesAutoresizingMaskIntoConstraints="NO" id="C0q-kO-BSZ">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newsplash" translatesAutoresizingMaskIntoConstraints="NO" id="C0q-kO-BSZ">
                             <rect key="frame" x="0.0" y="0.0" width="393" height="103"/>
                         </imageView>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ekran Resmi 2023-06-14 03.59.56" translatesAutoresizingMaskIntoConstraints="NO" id="gwN-pf-0uc">
-                            <rect key="frame" x="61" y="58" width="270" height="26"/>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home" translatesAutoresizingMaskIntoConstraints="NO" id="gwN-pf-0uc">
+                            <rect key="frame" x="113" y="58" width="189" height="41"/>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="C0q-kO-BSZ" firstAttribute="leading" secondItem="NfD-63-x2N" secondAttribute="leading" id="9rw-uK-w6w"/>
-                        <constraint firstItem="gwN-pf-0uc" firstAttribute="leading" secondItem="NfD-63-x2N" secondAttribute="leading" constant="61" id="Jqy-PJ-Opx"/>
+                        <constraint firstItem="gwN-pf-0uc" firstAttribute="leading" secondItem="NfD-63-x2N" secondAttribute="leading" constant="113" id="Jqy-PJ-Opx"/>
                         <constraint firstAttribute="height" constant="104" id="Kry-KA-zqC"/>
-                        <constraint firstAttribute="trailing" secondItem="gwN-pf-0uc" secondAttribute="trailing" constant="62" id="VWR-26-DtW"/>
-                        <constraint firstAttribute="bottom" secondItem="gwN-pf-0uc" secondAttribute="bottom" constant="20" symbolic="YES" id="Vlm-am-18J"/>
+                        <constraint firstAttribute="trailing" secondItem="gwN-pf-0uc" secondAttribute="trailing" constant="91" id="VWR-26-DtW"/>
+                        <constraint firstAttribute="bottom" secondItem="gwN-pf-0uc" secondAttribute="bottom" constant="5" id="Vlm-am-18J"/>
                         <constraint firstAttribute="trailing" secondItem="C0q-kO-BSZ" secondAttribute="trailing" id="YcQ-tU-BPL"/>
                         <constraint firstItem="C0q-kO-BSZ" firstAttribute="top" secondItem="NfD-63-x2N" secondAttribute="top" id="eu6-Jz-WTS"/>
                         <constraint firstAttribute="bottom" secondItem="C0q-kO-BSZ" secondAttribute="bottom" constant="1" id="iYM-qg-d2t"/>
@@ -53,7 +53,7 @@
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Phf-gE-ibE">
                     <rect key="frame" x="21" y="747" width="351" height="31"/>
-                    <color key="backgroundColor" red="0.45098042490000001" green="0.7019608021" blue="0.87058818339999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <color key="backgroundColor" red="0.74117648599999997" green="0.56078433989999998" blue="0.86274516580000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="31" id="e9O-LF-U7L"/>
                     </constraints>
@@ -90,7 +90,7 @@
                                 <constraint firstAttribute="width" constant="31" id="0UY-gU-sdm"/>
                                 <constraint firstAttribute="height" constant="29" id="JJ7-4P-agg"/>
                             </constraints>
-                            <color key="tintColor" red="0.25490197539999998" green="0.49411764740000003" blue="0.71764707569999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="tintColor" red="0.74117648599999997" green="0.56078433989999998" blue="0.86274516580000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
                             <connections>
@@ -120,7 +120,7 @@
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pDy-r2-8vd">
                             <rect key="frame" x="16.000000000000004" y="164" width="43.333333333333343" height="34.333333333333343"/>
-                            <color key="tintColor" red="0.45098042490000001" green="0.7019608021" blue="0.87058818339999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="tintColor" red="0.74117648599999997" green="0.56078433989999998" blue="0.86274516580000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" image="play.fill" catalog="system"/>
                             <connections>
@@ -128,9 +128,9 @@
                             </connections>
                         </button>
                         <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="VIo-o1-f1G">
-                            <rect key="frame" x="57" y="178" width="232" height="4"/>
+                            <rect key="frame" x="57" y="179" width="232" height="4"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="tintColor" red="0.45098042490000001" green="0.7019608021" blue="0.87058818339999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="tintColor" systemColor="systemGray3Color"/>
                         </progressView>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
@@ -246,15 +246,18 @@
         </view>
     </objects>
     <resources>
-        <image name="Ekran Resmi 2023-06-11 22.38.32 1" width="816" height="426"/>
-        <image name="Ekran Resmi 2023-06-14 03.59.56" width="670" height="114"/>
         <image name="heart" catalog="system" width="128" height="107"/>
+        <image name="home" width="728" height="150"/>
+        <image name="newsplash" width="856" height="458"/>
         <image name="play.fill" catalog="system" width="117" height="128"/>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGroupedBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

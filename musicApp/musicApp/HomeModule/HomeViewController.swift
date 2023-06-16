@@ -83,7 +83,7 @@ func setupTableView() {
        titleLabel.text = "Always Discover Something"
        titleLabel.textAlignment = .center
        titleLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
-    titleLabel.textColor = .systemBlue
+    titleLabel.textColor = .systemPurple
        
        let subtitleLabel = UILabel()
        subtitleLabel.text = "Song, Artist, and More"
